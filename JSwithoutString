@@ -1,0 +1,25 @@
+function withoutString(base, remove){
+  let blen = base.length;
+  let rlen = remove.length;
+  let lowbase = base.toLowerCase();
+  let lowrem = remove.toLowerCase();
+  let fin = "";
+
+  for (let i = 0; i < blen; i++) {
+    if (i <= blen - rlen) {
+      String tmp = lowbase.substring(i, i + rlen);
+      if (tmp != lowrem)
+        fin += base.substring(i,i+1);
+      else {
+        i += rlen-1;
+      }
+    }
+    else {
+      String tmp2 = lowbase.substring(i,i+1);
+      if (tmp2 != lowrem)
+        fin += base.substring(i,i+1);
+    }
+  }
+  
+  return fin;
+}
